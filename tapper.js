@@ -6,7 +6,7 @@ var radius = 1,
     time = document.getElementById('time'),
     pixels = document.getElementById('pixels'),
     welcome = document.getElementById('welcome'),
-    growBtn = document.getElementById('growBtn'),
+    // growBtn = document.getElementById('growBtn'),
     startBtn = document.getElementById('start'),
     canvas = document.getElementById('canvas'),
     context = canvas.getContext('2d'),
@@ -78,30 +78,25 @@ function update() {
 document.addEventListener('keyup', function(e) {
   if(e.keyCode == 32 || e.which == 32) {
     if(playing) {
-      growBtn.disabled = true;
+      //growBtn.disabled = true;
       radius++;
     }
   }
 });
 
-growBtn.addEventListener('click', function(e) {
-  if(playing) {
-    radius++;
-  }
-});
-
-growBtn.addEventListener('touchstart', function(e) {
-  if(playing) {
-    radius++;
-  }
-});
+// growBtn.addEventListener('click', function(e) {
+//   if(playing) {
+//     radius++;
+//   }
+// });
+//
+// growBtn.addEventListener('touchstart', function(e) {
+//   if(playing) {
+//     radius++;
+//   }
+// });
 
 startBtn.addEventListener('click', function(e) {
   welcome.style.display = "none";
-  start();
-});
-
-startBtn.addEventListener('touchstart', function(e) {
-  welcome.style.display = 'none';
   start();
 });
