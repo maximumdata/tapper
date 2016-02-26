@@ -89,7 +89,18 @@ growBtn.addEventListener('click', function(e) {
   }
 });
 
+growBtn.addEventListener('touchstart', function(e) {
+  if(playing) {
+    radius++;
+  }
+});
+
 startBtn.addEventListener('click', function(e) {
   welcome.style.display = "none";
+  start();
+});
+
+startBtn.addEventListener('touchstart', function(e) {
+  welcome.style.display = 'none';
   start();
 });
