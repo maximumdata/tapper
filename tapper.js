@@ -15,7 +15,7 @@ var radius = 1,
 $(document).ready(function() {
   canvas.height = height;
   canvas.width = width;
-  $.getJSON('http://localhost:7080/day8', function(data) {
+  $.getJSON('http://mikedettmer.com:7080/day8', function(data) {
     best = data;
     $('.best').text(data.size *2);
   });
@@ -67,7 +67,7 @@ function finish() {
 }
 
 function update() {
-  $.post('http://localhost:7080/day8/update/'+radius, function(data){
+  $.post('http://mikedettmer.com:7080/day8/update/'+radius, function(data){
     if(data.success) {
       document.getElementById('msg').innerText += '\n\nYour record was successfully uploaded!';
     }
