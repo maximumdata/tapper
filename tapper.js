@@ -12,9 +12,10 @@ var radius = 1,
     context = canvas.getContext('2d'),
     best;
 
+canvas.height = height;
+canvas.width = width;
+
 $(document).ready(function() {
-  canvas.height = height;
-  canvas.width = width;
   $.getJSON('http://mikedettmer.com:7080/day8', function(data) {
     best = data;
     $('.best').text(data.size *2);
