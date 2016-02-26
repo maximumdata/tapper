@@ -15,12 +15,29 @@ var radius = 1,
 canvas.height = height;
 canvas.width = width;
 
-$(document).ready(function() {
-  $.getJSON('http://mikedettmer.com:7080/day8', function(data) {
-    best = data;
-    $('.best').text(data.size *2);
-  });
-});
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://mikedettmer.com:7080/day8');
+xhr.send(null);
+
+xhr.onreadystatechange = function() {
+  var DONE = 4;
+  var OK = 200;
+  if(xhr.readyState === DONE) {
+    if(xhr.status === OK) {
+      best = JSON.parse(xhr.response);
+      document.querySelector('.best').innerText = best.size * 2;
+    } else {
+      console.error('Error: ', xhr.status);
+    }
+  }
+};
+
+// $(document).ready(function() {
+//   $.getJSON('http://mikedettmer.com:7080/day8', function(data) {
+//     best = data;
+//     $('.best').text(data.size *2);
+//   });
+// });
 
 function draw() {
   if(playing) {
